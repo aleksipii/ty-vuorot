@@ -144,12 +144,12 @@ async function paivitaKalenteri() {
     const repoNimi = polku[1] || 'tyovuorot';
     
     try {
-        const userRes = await fetch("https://api.github.com/user", { headers: { "Authorization": `token ${token}` } });
+        const userRes = await fetch("https://api.github.com/aleksipii", { headers: { "Authorization": `token ${token}` } });
         if(!userRes.ok) { status.innerText = "❌ Token virheellinen."; return; }
         const userData = await userRes.json();
         const user = userData.login;
 
-        const url = `https://api.github.com/repos/${user}/${repoNimi}/contents/tyovuorot.ics`;
+        const url = `https://api.github.com/repos/${aleksipii}/${ty-vuorot}/contents/tyovuorot.ics`;
 
         let sha = "";
         const getRes = await fetch(url, { headers: { "Authorization": `token ${token}` } });
